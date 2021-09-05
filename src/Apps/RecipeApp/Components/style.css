@@ -60,5 +60,41 @@
 }
 
 .badge {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
+
+.table-fixed{
+    width: 100%;
+}
+
+.table-fixed tbody {
+    height: 300px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+    display: flow-root;
+}
+
+.table-fixed tbody td,
+.table-fixed tbody th,
+.table-fixed thead > tr > th {
+    float: left;
+    position: relative;
+}
+
+.table-fixed thead > tr > th:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/* #card-div:hover {
+    transition: transform 0.2s linear;
+    transform: rotateZ(360deg);
+} */

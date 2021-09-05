@@ -8,7 +8,7 @@ import rootSaga from "./root-saga";
 const sagaMiddleWare = createSagaMiddleware();
 let middleware = [sagaMiddleWare];
 
-if(process.env.NODE_ENV === `development`){
+if(false && process.env.NODE_ENV === `development`){
     middleware = [
         ...middleware,
         logger

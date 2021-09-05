@@ -7,7 +7,7 @@ const Ingredients = ({ ingredients }) => {
             {
                 ingredients?.map((item, key) => {
                     return (
-                        <div className="col my-2 mx-auto post-thumb">
+                        <div className="col my-2 mx-auto post-thumb" key={key}>
                             <img
                                 src={item.image}
                                 alt={item.text}
@@ -17,8 +17,8 @@ const Ingredients = ({ ingredients }) => {
                                 }}
                                 className="rounded mx-auto"
                             />
-                            <div class="post-hover text-center">
-                                <div class="inside">
+                            <div className="post-hover text-center">
+                                <div className="inside">
                                     <p 
                                         className="img-desc"
                                         style={{

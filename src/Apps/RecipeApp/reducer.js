@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const recipeReducer = (state = initialState, action) => {
-    console.log("Reducer:", state, action.type);
+    // console.log("Reducer:", state, action.type);
     switch (action.type) {
         case Action.FETCH_RECIPE_API: return {
             ...state,

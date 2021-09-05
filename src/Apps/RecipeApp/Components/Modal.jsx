@@ -36,9 +36,9 @@ const Modal = ({recipe}) => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="tab-content" id="nav-tabContent">
+            <div className="tab-content" id="nav-tabContent">
                 {/* Ingredients */}
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div className="modal-body">
                         
                         <img
@@ -54,13 +54,13 @@ const Modal = ({recipe}) => {
                         <p>
                             {
                                 recipe?.dietLabels?.map((item, key) =>
-                                    <span key={key} class="mx-1 badge rounded-pill bg-primary">{item}</span>
+                                    <span key={key} className="mx-1 badge rounded-pill bg-primary">{item}</span>
                                 )
                             }
                             
                             {
                                 recipe?.healthLabels?.map((item, key) =>
-                                    <span key={key} class="mx-1 badge rounded-pill bg-secondary">{item}</span>
+                                    <span key={key} className="mx-1 badge rounded-pill bg-secondary">{item}</span>
                                 )
                             }
                         </p>
@@ -73,7 +73,7 @@ const Modal = ({recipe}) => {
                 </div>
 
                 {/* Nutrients */}
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div className="modal-body">
                         <h2 className="text-center">{recipe.label}</h2>
                         <hr />

@@ -4,7 +4,7 @@ import { getRecipeData } from './api';
 
 // Functionality
 function* recipeWorker({payload}) {
-    console.log("recipe worker called");
+    // console.log("recipe worker called");
     try{
         const response = yield call(getRecipeData, payload);
         // console.log("API Data received:", response);

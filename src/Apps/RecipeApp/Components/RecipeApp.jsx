@@ -19,6 +19,7 @@ const RecipeApp = () => {
     // },[recipeState]);
 
     const updateQuery = () => {
+        if(!search) return;
         setQuery(search);
         setSearch("");
     }
@@ -38,10 +39,10 @@ const RecipeApp = () => {
             <h1 align="center">Foodies Adda</h1>
 
             <div className="col-lg-4 mx-auto">
-                <div class="input-group mb-3">
+                <div className="input-group mb-3">
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Recipe Name"
                         aria-describedby="button-addon2"
                         value = {search}
@@ -51,8 +52,8 @@ const RecipeApp = () => {
                         onKeyPress={(e) => handleonKeyPress(e)}
                         autoFocus
                     />
-                    <button class="btn btn-outline-secondary" onClick={updateQuery}>
-                        <i class="fa fa-search"></i>
+                    <button className="btn btn-outline-secondary" onClick={updateQuery}>
+                        <i className="fa fa-search"></i>
                     </button>
                 </div>
             </div>
@@ -63,26 +64,26 @@ const RecipeApp = () => {
                     {
                         recipeState.data.hits.map(({recipe}, key) => {
                             return (
-                                <div className="col-lg-3" key={key}>
+                                <div className="col-lg-3" key={key} id="card-div">
                                     <div className="card">
                                         <img src={recipe.image} className="card-img-top" alt="..." />
                                         <div className="card-body" align="center">
                                             <h4 className="card-title">{recipe.label}</h4>
-                                            <span class="mx-1 badge rounded-pill bg-secondary">
-                                                <i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
+                                            <span className="mx-1 badge rounded-pill bg-secondary">
+                                                <i className="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
                                                 {recipe.dishType}
                                             </span>
-                                            <span class="mx-1 badge rounded-pill bg-secondary">
-                                                <i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
+                                            <span className="mx-1 badge rounded-pill bg-secondary">
+                                                <i className="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
                                                 {recipe.mealType}
                                             </span>
-                                            <span class="mx-1 badge rounded-pill bg-secondary">
-                                                <i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
+                                            <span className="mx-1 badge rounded-pill bg-secondary">
+                                                <i className="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
                                                 {recipe.cuisineType}
                                             </span>
-                                            <span class="mx-1 badge rounded-pill bg-secondary">
-                                                <i class="fa fa-balance-scale"></i> &nbsp;
-                                                {recipe.calories.toFixed(2)+" cal"}
+                                            <span className="mx-1 badge rounded-pill bg-warning">
+                                                <i className="fa fa-balance-scale"></i> &nbsp;
+                                                {(recipe.calories/1000).toFixed(2)+" Kcal"}
                                             </span>
 
                                             <hr />
