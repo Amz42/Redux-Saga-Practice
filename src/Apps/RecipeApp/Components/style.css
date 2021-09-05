@@ -1,22 +1,64 @@
 .icon-btn{
     background-color: transparent;
-    border-radius: 100%;
+    border-radius: 20px;
     border: grey 0.5px solid;
     text-align: center;
-    width: 30px;
-    height: 30px;
+    margin-top: 10px;
 }
-
-/* @media only screen and (min-width: 1000px) {
-    .modal-image{
-        min-width: 400px;
-    }
-}
-
-.modal-image{
-    min-width: 500px;
-} */
 
 .nutrient-table{
     max-width: 800px;
+}
+
+.post-thumb {
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.post-thumb img {
+    width: 100%;
+    display: block;
+}
+
+.post-thumb .post-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 70px;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0,0,0,0.9);
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
+.post-thumb .post-hover .inside {
+    position: relative;
+    top: 50%;
+    padding: 10px;
+    font-family: sans-serif;
+    text-align: -webkit-center;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.post-thumb .post-hover p {
+    font-size: 14px;
+    color: white;
+}
+
+.post-thumb:hover .post-hover {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+.badge {
+    font-size: 0.8rem;
 }

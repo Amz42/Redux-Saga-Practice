@@ -6,7 +6,7 @@ import "./style.css";
 
 const RecipeApp = () => {
     const [search, setSearch] = useState("");
-    const [query, setQuery] = useState("all");
+    const [query, setQuery] = useState("chocolate");
     const [seletedRecipe, setSeletedRecipe] = useState({});
 
     const dispatch = useDispatch();
@@ -28,21 +28,34 @@ const RecipeApp = () => {
         dispatch(Action.fetchRecipeApi(query));
     }, [query]);
 
+    const handleonKeyPress = (e) => {
+        if(e.key === "Enter" )
+            updateQuery();
+    }
+
     return (
         <>
-            <h1>Recipe App</h1>
+            <h1 align="center">Foodies Adda</h1>
 
-
-            <input
-                type="text"
-                value = {search}
-                onChange={(e) => {
-                    setSearch(e.target.value)
-                }}
-            />
-            <button onClick={updateQuery}>
-                Search
-            </button>
+            <div className="col-lg-4 mx-auto">
+                <div class="input-group mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Recipe Name"
+                        aria-describedby="button-addon2"
+                        value = {search}
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                        }}
+                        onKeyPress={(e) => handleonKeyPress(e)}
+                        autoFocus
+                    />
+                    <button class="btn btn-outline-secondary" onClick={updateQuery}>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
 
             {
                 recipeState?.data?.hits &&
@@ -53,20 +66,33 @@ const RecipeApp = () => {
                                 <div className="col-lg-3" key={key}>
                                     <div className="card">
                                         <img src={recipe.image} className="card-img-top" alt="..." />
-                                        <div className="card-body">
+                                        <div className="card-body" align="center">
                                             <h4 className="card-title">{recipe.label}</h4>
-                                            <h5 className="card-title">Dish Type: {recipe.dishType}</h5>
-                                            <h5 className="card-title">Meal Type: {recipe.mealType}</h5>
-                                            <h5 className="card-title">Cuisine Type: {recipe.cuisineType}</h5>
-                                            <h5 className="card-title">Calories: {recipe.calories}</h5>
-                                            <p className="card-text">desc</p>
+                                            <span class="mx-1 badge rounded-pill bg-secondary">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
+                                                {recipe.dishType}
+                                            </span>
+                                            <span class="mx-1 badge rounded-pill bg-secondary">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
+                                                {recipe.mealType}
+                                            </span>
+                                            <span class="mx-1 badge rounded-pill bg-secondary">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;
+                                                {recipe.cuisineType}
+                                            </span>
+                                            <span class="mx-1 badge rounded-pill bg-secondary">
+                                                <i class="fa fa-balance-scale"></i> &nbsp;
+                                                {recipe.calories.toFixed(2)+" cal"}
+                                            </span>
+
+                                            <hr />
+                                            
                                             <button
                                                 className="icon-btn"
                                                 onClick={() => setSeletedRecipe(recipe)}
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal"
-                                            >
-                                                <i className="bi bi-chevron-down"></i>
+                                            >Know More &nbsp;<i className="bi bi-chevron-down"></i>
                                             </button>
                                         </div>
                                     </div>
