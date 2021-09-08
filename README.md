@@ -1,2 +1,2 @@
 # Redux-Saga-Practice
-### Recipe App
+## Recipe App
