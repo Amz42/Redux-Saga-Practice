@@ -27,7 +27,7 @@ const RecipeApp = () => {
     useEffect(() => {
         // console.log("useEffect called: " + query);
         dispatch(Action.fetchRecipeApi(query));
-    }, [query]);
+    }, [query, dispatch]);
 
     const handleonKeyPress = (e) => {
         if(e.key === "Enter" )
